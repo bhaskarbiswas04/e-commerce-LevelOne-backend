@@ -22,10 +22,8 @@ const { categoriesData } = require("./src/datas/categoriesData");
 async function startServer() {
   try {
     await initializeDatabase();
-
-    // ✅ ONLY uncomment ONE TIME
-    await seedCategories();
-    await seedProducts();
+    // await seedCategories();
+    // await seedProducts();
 
     app.get("/", (req, res) => {
       res.send("🚀 E-commerce Backend Running...");
@@ -69,7 +67,7 @@ async function seedCategories() {
 /* ---------------- PRODUCT ROUTES ---------------- */
 
 // GET ALL PRODUCTS
-app.get("/api/products", async (req, res) => {
+app.get("/products", async (req, res) => {
   try {
     const products = await Product.find();
     if (products.length > 0) {
@@ -87,7 +85,7 @@ app.get("/api/products", async (req, res) => {
 });
 
 // GET PRODUCT BY ID
-app.get("/api/products/:productId", async (req, res) => {
+app.get("/products/:productId", async (req, res) => {
   try {
     const product = await Product.findOne({
       id: Number(req.params.productId),
@@ -111,7 +109,7 @@ app.get("/api/products/:productId", async (req, res) => {
 /* ---------------- CATEGORY ROUTES ---------------- */
 
 // GET ALL CATEGORIES
-app.get("/api/categories", async (req, res) => {
+app.get("/categories", async (req, res) => {
   try {
     const categories = await Category.find();
     if (categories.length > 0) {
@@ -129,7 +127,7 @@ app.get("/api/categories", async (req, res) => {
 });
 
 // GET CATEGORY BY ID
-app.get("/api/categories/:categoryId", async (req, res) => {
+app.get("/categories/:categoryId", async (req, res) => {
   try {
     const category = await Category.findOne({
       id: Number(req.params.categoryId),
