@@ -18,7 +18,7 @@ const Category = require("./src/models/category.model");
 const { productsData } = require("./src/datas/productsData");
 const { categoriesData } = require("./src/datas/categoriesData");
 
-/* ---------------- SERVER START ---------------- */
+/* ---- SERVER START ---- */
 async function startServer() {
   try {
     await initializeDatabase();
@@ -38,7 +38,7 @@ async function startServer() {
 
 startServer();
 
-/* ---------------- SEED DATA ---------------- */
+/* ----- SEED DATA ----- */
 
 async function seedProducts() {
   try {
@@ -64,7 +64,7 @@ async function seedCategories() {
   }
 }
 
-/* ---------------- PRODUCT ROUTES ---------------- */
+/* ---- PRODUCT ROUTES ---- */
 
 // GET ALL PRODUCTS
 app.get("/products", async (req, res) => {
@@ -106,7 +106,7 @@ app.get("/products/:productId", async (req, res) => {
 });
 
 
-/* ---------------- CATEGORY ROUTES ---------------- */
+/* ---- CATEGORY ROUTES ---- */
 
 // GET ALL CATEGORIES
 app.get("/categories", async (req, res) => {
